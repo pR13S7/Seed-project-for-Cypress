@@ -1,0 +1,37 @@
+{
+	"baseUrl":"",
+	"env": {		
+		"envToTest": "dev"
+	},
+	"defaultCommandTimeout": 15000,
+	"viewportWidth": 1366,
+	"viewportHeight": 768,
+	"projectId": "o3nbya",
+	"reporter": "cypress-mochawesome-reporter",
+	"reporterOptions": {
+		"reportDir": "cypress/mochawesome-report",
+		"charts": true,
+		"code": false,
+		"showHooks": "failed",
+		"reportPageTitle": "",
+		"reportTitle": "",
+		"html": true,
+		"json": false,
+		"inlineAssets": true,
+		"embeddedScreenshots": true
+	},
+	"$schema": "https://on.cypress.io/cypress.schema.json",
+	"video": false,
+	"screenshotOnRunFailure": true,
+	"retries": {
+		"runMode": 2,
+		"openMode": 0
+	},
+	"watchForFileChanges":false,
+	"chromeWebSecurity": false,
+	"scrollBehavior":false,
+	"integrationFolder": "cypress/integration",
+	"testFiles": "**.spec.js",
+	"experimentalStudio": false,
+	"experimentalSessionSupport": true
+}
