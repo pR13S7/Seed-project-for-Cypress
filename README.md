@@ -21,9 +21,4 @@
 ## Install
 Run :
 ```
-npm init 
-```
-After done, run (to install your project deps):
-
-```
 npm install
