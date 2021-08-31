@@ -11,13 +11,9 @@
     - cypressGlobal.js (global variables from Cypress)
     - selectors.js (selectors for page elements)
 - plugins
-  - index.js (task functions defined here)
-  - credentials.json (json for gmail account auth generation)
-  - emailAccount.js (functions for EtherealMail)
-  - etherealConfig.js (config for EtherealMail)
-  - gmail_token.json (token for Gmail auth
+  - index.js (task functions defined here) 
 - support
-  - commands.j (custom commands defined here)
+  - commands.js (custom commands defined here)
   - index.js (where we import all of our custom commands, define other Cypress functions)
   - index.d.ts (where we type all of our tasks, custom commands, etc.)
 
