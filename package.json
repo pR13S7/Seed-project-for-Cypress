@@ -1,15 +1,18 @@
 {
   "scripts": {
     "cypress:open": "cypress open",
-    "cypress:run tests": "npx cypress run -b chrome --headless"
+    "cypress:run tests": "npx cypress run -b chrome --headless",
+    "cypress: burn one test": "npx cypress run --env grep='server and open new',burn=20"
   },
   "requires": true,
   "lockfileVersion": 1,
   "devDependencies": {
     "cypress": "^8.3.0",
     "cypress-file-upload": "^5.0.8",
+    "cypress-grep": "^2.5.3",
     "cypress-mochawesome-reporter": "^2.2.0",
     "cypress-multi-reporters": "^1.4.0",
+    "cypress-real-events": "^1.5.1",
     "cypress-recurse": "^1.8.1",
     "cypress-xpath": "^1.6.2",
     "faker": "^5.5.3",

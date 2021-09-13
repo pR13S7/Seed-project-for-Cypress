@@ -4,9 +4,9 @@
 		"envToTest": "dev"
 	},
 	"defaultCommandTimeout": 15000,
+	"requestTimeout": 10000,
 	"viewportWidth": 1366,
 	"viewportHeight": 768,
-	"projectId": "o3nbya",
 	"reporter": "cypress-mochawesome-reporter",
 	"reporterOptions": {
 		"reportDir": "cypress/mochawesome-report",

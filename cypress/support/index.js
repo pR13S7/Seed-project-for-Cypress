@@ -1,5 +1,6 @@
 import 'cypress-mochawesome-reporter/register'
 import addContext from 'mochawesome/addContext'
+import "cypress-real-events/support";
 
 // ***********************************************************
 // This example support/index.js is processed and
