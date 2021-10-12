@@ -24,9 +24,20 @@ export const stringArrIsSorted = (stringArr, isReverse) =>{
 export const noop = () =>{}
 
 //==== Returns a random number between min (inclusive) and max (inclusive)
-export const randomInRange = (edgeA = 0, edgeB = 100) =>{
-    edgeA = Math.ceil(edgeA);
-    edgeB = Math.floor(edgeB)
-
-    return Math.floor(Math.random() * (edgeA - edgeB + 1)) + edgeA
+export const randomInRange = (min = 0, max = 100) =>{
+    return Math.floor(Math.random() * (max - min + 1)) + min
 }
+
+//=== Date helper functions
+export const todayDateString = () =>{
+    return new Date().toLocaleDateString('uk')
+}
+
+export const randomDate = (start, end) =>{
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
+}
+
+export const timeStampToFormatDate = (timestamp) =>{
+    return new Date(timestamp).toLocaleDateString('uk')
+}
+
