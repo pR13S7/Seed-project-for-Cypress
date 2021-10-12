@@ -6,4 +6,3 @@ node_modules
 /yarn-error.log
 /cypress/videos
 /package-lock.json
-/getGmailToken.bat
