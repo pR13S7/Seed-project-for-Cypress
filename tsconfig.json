@@ -5,7 +5,8 @@
     "noEmit": true,
     "types": [
         "cypress" , 
-        "cypress-real-events"
+        "cypress-real-events",
+        "cypress-wait-until"
         ]
     },
     "include": [
