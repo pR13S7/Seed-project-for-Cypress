@@ -6,6 +6,11 @@
 
 declare namespace Cypress {
     interface Chainable<Subject> {
-       
+		/**
+        * force visit another domain
+        * @example
+        * cy.forceVisit(url)
+        */
+        forceVisit(url: string): Chainable<any>       
     }
 }
