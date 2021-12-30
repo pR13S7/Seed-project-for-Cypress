@@ -5,8 +5,9 @@
     "noEmit": true,
     "types": [
         "cypress" , 
-        "cypress-real-events",
-        "cypress-wait-until"
+        "cypress-xpath",
+        "cypress-wait-until",
+        "cypress-real-events"
         ]
     },
     "include": [

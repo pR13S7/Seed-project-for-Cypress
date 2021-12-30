@@ -11,6 +11,7 @@ on:
 
 jobs:
   cypress-run:
+    timeout-minutes: 30
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
@@ -22,7 +23,7 @@ jobs:
           browser: chrome
           headless: true
           record: false 
-          env: true    
+          env: true
         env:
           CYPRESS_userPass: ${{ secrets.CYPRESS_USERPASS }} 
         continue-on-error: true
@@ -31,6 +32,7 @@ jobs:
         run: |
           mkdir public                 
           cp -r cypress/mochawesome-report/. public      
+          cp -r custom_reports/. public
       
       - name: Deploy report page
         uses: peaceiris/actions-gh-pages@v3

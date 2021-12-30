@@ -37,7 +37,26 @@ export const randomDate = (start, end) =>{
     return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
 }
 
-export const timeStampToFormatDate = (timestamp) =>{
+export const timeStampToFormatDate = (timestamp, isSec = false) =>{    
+    isSec && (timestamp *= 1000)
+
     return new Date(timestamp).toLocaleDateString('uk')
 }
+
+export const stringArrIsSorted = (stringArr, isReverse) =>{
+    let sortedStringArr = [...stringArr]
+    sortedStringArr.sort((a, b) => a !== b ? a < b ? -1 : 1 : 0)            
+
+    if(isReverse){
+        sortedStringArr = sortedStringArr.reverse()
+    }
+
+    expect(stringArr,'String array are sorted 📈').to.deep.equal(sortedStringArr)    
+}
+
+//** Returns a random number between min (inclusive) and max (inclusive)
+export const randomInRange = (min = 0, max = 100) =>{
+    return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
 
