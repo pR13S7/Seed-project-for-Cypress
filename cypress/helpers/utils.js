@@ -1,5 +1,8 @@
 let faker = require('faker')
 const { _ } = Cypress
+const dayjs = require('dayjs')
+let customParseFormat = require('dayjs/plugin/customParseFormat')
+dayjs.extend(customParseFormat)
 
 //==== grep data from cells in table to an array
 export const cellsToNamesObjects = (cells) => {
@@ -8,16 +11,32 @@ export const cellsToNamesObjects = (cells) => {
     })
 } 
 
-//===== check if array is sorted by alphabet
+//===== check if array of strings is sorted by alphabet
 export const stringArrIsSorted = (stringArr, isReverse) =>{
     let sortedStringArr = [...stringArr]
-    sortedStringArr.sort((a, b) => a !== b ? a < b ? -1 : 1 : 0)            
-
-    if(isReverse){
-        sortedStringArr = sortedStringArr.reverse()
-    }
-
+    sortedStringArr.sort((a, b) => {return a.localeCompare(b, 'en', { sensitivity: 'base'})}) 
+    isReverse && (sortedStringArr = sortedStringArr.reverse()) 
+    
     expect(stringArr,'String array are sorted 📈').to.deep.equal(sortedStringArr)    
+}
+
+//===== check if array of numbers is sorted by alphabet
+export const numberArrIsSorted = (numberArr, isReverse) =>{
+    let sortedNumberArr = [...numberArr]
+    sortedNumberArr.sort((a, b) => a - b)            
+
+    isReverse && (sortedNumberArr = sortedNumberArr.reverse())    
+
+    expect(numberArr,'Number array are sorted 📈').to.deep.equal(sortedNumberArr)    
+}
+
+//===== check if array of date strings is sorted by alphabet
+export const arrIsSortedByDate = (arr, isReverse) =>{    
+    // @ts-ignore
+    let sortedCells = [...arr].sort((a,b)=>dayjs(b, 'DD/MM/YYYY').isAfter(dayjs(a, 'DD/MM/YYYY')) ? 1 : -1 )
+    isReverse && (sortedCells = sortedCells.reverse())    
+
+    expect(arr,'Date cells are sorted 📈').to.deep.equal(sortedCells)
 }
 
 //==== No Operation function to use in callbacks
@@ -31,6 +50,10 @@ export const randomInRange = (min = 0, max = 100) =>{
 //=== Date helper functions
 export const todayDateString = () =>{
     return new Date().toLocaleDateString('uk')
+}
+
+export const isDateInFuture = (date,fromDate) => {
+    return date.setHours(0,0,0,0) >= fromDate.setHours(0,0,0,0)
 }
 
 export const randomDate = (start, end) =>{
@@ -59,4 +82,7 @@ export const randomInRange = (min = 0, max = 100) =>{
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
+export const replaceValueInArr = (arr, oldVal, newVal) =>{
+    arr.forEach((el,i,arr) => { el === oldVal && (arr[i] = newVal) })
+}
 
